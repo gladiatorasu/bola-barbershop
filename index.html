@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barbershop Bola — Воронеж</title>
+<meta name="description" content="Барбершоп Bola на Урицкого, 128. Мужские и детские стрижки, борода, бритьё, химическая завивка и системы замещения волос. Ежедневно 10:00–20:00.">
+<!-- Демо-версия: пока владелец не одобрил сайт, поисковики его не показывают. После покупки убрать эту строку. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#151413">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Barbershop Bola — Воронеж">
+<meta property="og:description" content="Стрижки, борода и бритьё на Урицкого, 128. Ежедневно 10:00–20:00.">
+<meta property="og:image" content="img/hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "Barbershop Bola",
+  "image": "img/hero.jpg",
+  "telephone": "+7 910 289-86-81",
+  "priceRange": "300–8000 ₽",
+  "address": {"@type": "PostalAddress", "streetAddress": "улица Урицкого, 128, 1 этаж", "addressLocality": "Воронеж", "postalCode": "394026", "addressCountry": "RU"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 51.679823, "longitude": 39.187641},
+  "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "20:00"}],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "76", "bestRating": "5"},
+  "sameAs": ["https://vk.com/barbershop_bola_vrn", "https://dikidi.ru/1488742", "https://2gis.ru/voronezh/firm/70000001063190270"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Макет: на их фото — кепки, жилеты, тёмный зал с косыми полками. Отсюда графит, латунь
+     и римские прописные, как на вывеске старого салона; латунные двойные линии вместо рамок. */
+  :root{
+    --bg:#151413;
+    --bg-2:#1d1b19;
+    --card:#22201d;
+    --line:#37332e;
+    --fg:#f1ebe1;
+    --muted:#a39a8d;
+    --brass:#c9a35a;
+    --brass-2:#e0bd76;
+    --open:#6cc48a;
+    --display:"Forum","Times New Roman",Georgia,serif;
+    --body:"Jost",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --wrap:1200px;
+    --r:4px;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+  body{background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--brass);color:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  svg{display:block;flex:none}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.05;text-transform:uppercase;letter-spacing:.04em}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:var(--r);border:1px solid transparent;cursor:pointer;font:500 15px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+  .btn svg{width:18px;height:18px}
+  .btn-brass{background:var(--brass);color:#17130c}
+  .btn-brass:hover{background:var(--brass-2)}
+  .btn-line{border-color:var(--brass);color:var(--fg)}
+  .btn-line:hover{background:var(--brass);color:#17130c}
+  .btn-sm{height:42px;padding:0 18px;font-size:13px}
+
+  /* латунная двойная линия с ромбом */
+  .rule{display:flex;align-items:center;gap:14px;color:var(--brass)}
+  .rule::before,.rule::after{content:"";flex:1;height:5px;border-block:1px solid currentColor;opacity:.7}
+  .rule i{width:8px;height:8px;transform:rotate(45deg);background:currentColor}
+
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+  .header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+  .header .wrap{display:flex;align-items:center;gap:30px;height:72px}
+  .logo{display:flex;flex-direction:column;line-height:1}
+  .logo b{font:400 30px/1 var(--display);letter-spacing:.18em}
+  .logo small{font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--brass);margin-top:4px}
+  .nav{display:flex;gap:26px;font-size:14px;letter-spacing:.06em;color:var(--muted)}
+  .nav a:hover{color:var(--brass-2)}
+  .header-right{margin-left:auto;display:flex;align-items:center;gap:18px}
+  .header-phone{font-weight:500;font-size:15px;white-space:nowrap}
+
+  /* первый экран */
+  .hero{padding:clamp(32px,5vw,72px) 0 clamp(48px,6vw,80px)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:center}
+  .eyebrow{font-size:13px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--brass)}
+  .hero h1{font-size:clamp(64px,9.5vw,132px);line-height:.95;margin-top:18px;letter-spacing:.08em}
+  .hero h1 small{display:block;font-size:.3em;letter-spacing:.42em;color:var(--muted);margin-top:12px}
+  .lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:28em;margin:26px 0 32px}
+  .lead b{color:var(--fg);font-weight:500}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:30px;font-size:15px;color:var(--muted)}
+  .hero-meta b{color:var(--fg);font-weight:500}
+  .stars{display:inline-flex;gap:2px;color:var(--brass);vertical-align:-1px;margin-right:6px}
+  .stars svg{width:13px;height:13px}
+  .status i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-right:8px;vertical-align:1px}
+  .status.is-open i{background:var(--open)}
+  .frame{position:relative;padding:12px;border:1px solid var(--brass)}
+  .frame::before{content:"";position:absolute;inset:5px;border:1px solid rgba(201,163,90,.4);pointer-events:none}
+  .frame img{width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;object-position:50% 35%;max-width:100%;background:var(--card)}
+
+  .section{padding:clamp(72px,9vw,112px) 0}
+  .alt{background:var(--bg-2)}
+  .head{text-align:center;max-width:680px;margin:0 auto clamp(32px,4vw,52px)}
+  .head .rule{max-width:220px;margin:0 auto 18px}
+  .head h2{font-size:clamp(38px,5vw,64px)}
+  .head p{color:var(--muted);margin-top:14px}
+
+  /* прайс в три колонки */
+  .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px)}
+  .group{min-width:0}
+  .group h3{font-size:24px;color:var(--brass);padding-bottom:12px;border-bottom:1px solid var(--brass)}
+  .it{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .it span{font-weight:500}
+  .it small{grid-column:1;font-size:14px;color:var(--muted)}
+  .it b{grid-row:1;grid-column:2;font:400 21px/1.3 var(--display);white-space:nowrap}
+  .menu-note{text-align:center;margin-top:28px;font-size:14px;color:var(--muted)}
+  .systems{margin-top:clamp(40px,5vw,56px);display:grid;grid-template-columns:auto 1fr auto;gap:20px 32px;align-items:center;padding:28px 32px;border:1px solid var(--brass);border-radius:var(--r)}
+  .systems h3{font-size:26px}
+  .systems p{color:var(--muted);font-size:16px}
+  .systems b{font:400 28px/1 var(--display);color:var(--brass-2);white-space:nowrap}
+
+  /* работы */
+  .works{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .work{padding:0;border:0;border-radius:var(--r);overflow:hidden;background:var(--card);cursor:zoom-in;aspect-ratio:3/4;max-width:100%;min-width:0}
+  .work img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .3s}
+  .work:hover img{transform:scale(1.05)}
+
+  /* мастера */
+  .masters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:960px;margin:0 auto}
+  .master{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0}
+  .mono{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--brass);box-shadow:0 0 0 5px var(--card),0 0 0 6px rgba(201,163,90,.45);font:400 36px/1 var(--display);color:var(--brass-2)}
+  .master .rank{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
+  .master h3{font-size:30px}
+  .master p{font-size:15px;color:var(--muted)}
+  .master .btn{margin-top:auto;width:100%}
+
+  /* атмосфера и дети */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .split-text{min-width:0}
+  .split-text h2{font-size:clamp(34px,4.4vw,56px);margin:16px 0 18px}
+  .split-text p{color:var(--muted);max-width:30em}
+  .split-text p + p{margin-top:12px}
+  .perks{display:grid;gap:14px;margin-top:28px}
+  .perk{display:grid;grid-template-columns:14px 1fr;gap:14px;align-items:baseline}
+  .perk::before{content:"";width:8px;height:8px;transform:rotate(45deg);background:var(--brass);margin-top:6px}
+  .perk b{font-weight:500}
+  .perk span{display:block;color:var(--muted);font-size:15px}
+  .trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .trio img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:var(--r);background:var(--card);max-width:100%;min-width:0}
+  .trio img:nth-child(2){margin-top:40px}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .duo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);background:var(--card);max-width:100%;min-width:0}
+  .split.flip .split-text{order:2}
+
+  /* отзывы */
+  .reviews{columns:3 300px;column-gap:12px}
+  .review{break-inside:avoid;margin-bottom:12px;padding:26px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);display:grid;gap:12px}
+  .review p{font-size:16px;overflow-wrap:anywhere}
+  .review footer{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}
+  .review footer b{color:var(--fg);font-weight:500}
+
+  /* контакты */
+  .contacts{display:grid;grid-template-columns:1fr 1.25fr;gap:12px}
+  .info{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+  .info img{width:100%;aspect-ratio:16/10;object-fit:cover;max-width:100%}
+  .info dl{padding:26px;display:grid;gap:16px}
+  .r{display:grid;grid-template-columns:96px 1fr;gap:12px}
+  .r + .r{padding-top:16px;border-top:1px solid var(--line)}
+  .r dt{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);padding-top:4px}
+  .r dd small{display:block;color:var(--muted);font-size:14px}
+  .r a:hover{color:var(--brass-2)}
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  .map{position:relative;min-height:460px;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--line)}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .map .btn{position:absolute;left:16px;top:16px;z-index:2}
+
+  .final{text-align:center;padding-block:clamp(64px,8vw,100px);border-top:1px solid var(--line)}
+  .final .rule{max-width:220px;margin:0 auto 20px}
+  .final h2{font-size:clamp(34px,4.6vw,60px)}
+  .final p{color:var(--muted);margin:14px 0 28px}
+  .footer{border-top:1px solid var(--line);padding-block:24px 30px;font-size:14px;color:var(--muted)}
+  .footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+  .footer a{border-bottom:1px solid var(--line)}
+
+  .lightbox{border:0;padding:0;background:transparent;margin:auto;max-width:min(92vw,900px);max-height:90vh;overflow:visible}
+  .lightbox::backdrop{background:rgba(10,9,8,.93)}
+  .lightbox img{max-width:min(92vw,900px);max-height:86vh;width:auto;height:auto;border-radius:var(--r)}
+  .lightbox button{position:fixed;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));width:46px;height:46px;border-radius:50%;border:0;background:var(--brass);color:#17130c;cursor:pointer;display:grid;place-items:center}
+  .lightbox button svg{width:18px;height:18px}
+  .mobile-bar{display:none}
+
+  .hero-grid > div > *,.frame{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
+  .hero-grid > div > :nth-child(2){animation-delay:.05s}
+  .hero-grid > div > :nth-child(3){animation-delay:.1s}
+  .hero-grid > div > :nth-child(4){animation-delay:.15s}
+  .hero-grid > div > :nth-child(5){animation-delay:.2s}
+  .frame{animation-delay:.12s}
+  @keyframes up{from{opacity:0;transform:translateY(16px)}}
+
+  @media (max-width:1060px){.nav{display:none}.works{grid-template-columns:repeat(4,1fr)}.works .work:nth-child(n+9){display:none}}
+  @media (max-width:900px){
+    .hero-grid,.split,.contacts{grid-template-columns:1fr}
+    .split.flip .split-text{order:0}
+    .menu{grid-template-columns:1fr 1fr}
+    .masters{grid-template-columns:1fr 1fr 1fr}
+    .systems{grid-template-columns:1fr;gap:10px}
+    .header-phone{display:none}
+  }
+  @media (max-width:640px){
+    body{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+    .header .btn{display:none}
+    .cta{flex-direction:column}
+    .cta .btn{width:100%}
+    .menu,.masters{grid-template-columns:1fr}
+    .works{grid-template-columns:1fr 1fr;gap:6px}
+    .works .work:nth-child(n+9){display:block}
+    .master{display:grid;grid-template-columns:64px 1fr;text-align:left;align-items:center;padding:20px}
+    .mono{width:64px;height:64px;font-size:28px}
+    .master .btn{grid-column:1/-1}
+    .systems{padding:22px}
+    .head h2{font-size:34px}
+    .r{grid-template-columns:1fr;gap:2px}
+    .map{min-height:320px}
+    .final .btn{width:100%}
+    .mobile-bar{display:grid;grid-template-columns:1fr auto;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-top:1px solid var(--line)}
+    .mobile-bar .btn-line{width:54px;padding:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.5 4.3L2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.8-1.5-1.4zM9 14.2l9.1-5.8c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2z"/></symbol>
+    <symbol id="i-vk" viewBox="0 0 24 24"><path fill="currentColor" d="M12.8 17.5C6.6 17.5 3.1 13.3 3 6.5h3.1c.1 5 2.3 7.1 4.1 7.5V6.5h2.9v4.3c1.8-.2 3.6-2.2 4.3-4.3h2.9a8.6 8.6 0 0 1-3.9 5.6 9 9 0 0 1 4.6 5.4h-3.2a5.6 5.6 0 0 0-4.7-4v4z"/></symbol>
+  </defs>
+</svg>
+
+<header class="header">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Barbershop Bola — наверх"><b>BOLA</b><small>barbershop</small></a>
+    <nav class="nav">
+      <a href="#prices">Цены</a>
+      <a href="#works">Работы</a>
+      <a href="#masters">Мастера</a>
+      <a href="#kids">Детям</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <a class="header-phone" href="tel:+79102898681">+7 910 289-86-81</a>
+      <a class="btn btn-brass btn-sm" href="https://dikidi.ru/1488742" target="_blank" rel="noopener">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Барбершоп · Воронеж</span>
+        <h1>Bola<small>barbershop</small></h1>
+        <p class="lead">Стрижки, борода, бритьё и системы замещения волос. <b>Урицкого, 128</b>.</p>
+        <div class="cta">
+          <a class="btn btn-brass" href="https://dikidi.ru/1488742" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+          <a class="btn btn-line" href="tel:+79102898681"><svg><use href="#i-phone"/></svg>Позвонить</a>
+        </div>
+        <div class="hero-meta">
+          <span><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><b>4,8</b> в 2ГИС · 76 оценок</span>
+          <span class="status" id="status"><i></i><span>Ежедневно 10:00–20:00</span></span>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="img/hero.jpg" alt="Команда барбершопа Bola в зале" width="1440" height="867" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="prices">
+    <div class="wrap">
+      <div class="head">
+        <div class="rule"><i></i></div>
+        <h2>Прайс</h2>
+        <p>Цены из онлайн-записи DIKIDI и 2ГИС. Точную стоимость у выбранного мастера видно при записи.</p>
+      </div>
+      <div class="menu">
+        <div class="group">
+          <h3>Волосы</h3>
+          <div class="it"><span>Мужская стрижка</span><b>от 900 ₽</b><small>зависит от мастера</small></div>
+          <div class="it"><span>Детская стрижка до 8 лет</span><b>800 ₽</b><small>20 мин</small></div>
+          <div class="it"><span>Химическая завивка</span><b>от 3 000 ₽</b><small>1 ч</small></div>
+          <div class="it"><span>Сухое бритьё головы</span><b>900 ₽</b><small>15 мин</small></div>
+          <div class="it"><span>Камуфляж головы</span><b>от 800 ₽</b><small>20 мин</small></div>
+        </div>
+        <div class="group">
+          <h3>Борода</h3>
+          <div class="it"><span>Оформление бороды и усов</span><b>от 800 ₽</b><small>25 мин</small></div>
+          <div class="it"><span>Сухое бритьё лица</span><b>700 ₽</b><small>15 мин</small></div>
+          <div class="it"><span>Камуфляж бороды</span><b>700 ₽</b><small>15 мин</small></div>
+          <div class="it"><span>Оформление + камуфляж бороды</span><b>1 500 ₽</b><small>40 мин</small></div>
+          <div class="it"><span>Уход за лицом</span><b>800 ₽</b><small>40 мин</small></div>
+          <div class="it"><span>Восковая депиляция</span><b>от 300 ₽</b><small>10 мин</small></div>
+        </div>
+        <div class="group">
+          <h3>Комплексы</h3>
+          <div class="it"><span>Стрижка + оформление бороды</span><b>от 1 500 ₽</b><small>зависит от мастера</small></div>
+          <div class="it"><span>Стрижка, оформление и камуфляж бороды</span><b>2 100 ₽</b><small>1 ч 10 мин</small></div>
+          <div class="it"><span>«Отец и сын»</span><b>1 700 ₽</b><small>1 ч · стрижка папе и ребёнку</small></div>
+        </div>
+      </div>
+      <div class="systems">
+        <h3>Системы волос</h3>
+        <p>Наращивание системы замещения волос — 3 ч 30 мин. Коррекция наращенной системы — 5 000 ₽, 2 ч 40 мин.</p>
+        <b>от 8 000 ₽</b>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="head">
+        <div class="rule"><i></i></div>
+        <h2>Работы</h2>
+        <p>Фото из 2ГИС. Нажмите, чтобы рассмотреть.</p>
+      </div>
+      <div class="works">
+        <button class="work" type="button"><img src="img/rabota-1.jpg" alt="Короткая стрижка и борода" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-2.jpg" alt="Фейд и оформленная борода, чёрно-белое фото" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-3.jpg" alt="Чёткая окантовка бороды" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-4.jpg" alt="Классическая стрижка с бородой" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-5.jpg" alt="Короткий кроп" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-6.jpg" alt="Фейд с текстурой и борода" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-7.jpg" alt="Удлинённая стрижка с бородой" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-8.jpg" alt="Длинная оформленная борода" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-9.jpg" alt="Бритьё головы и борода" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-10.jpg" alt="Окантовка на затылке" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="masters">
+    <div class="wrap">
+      <div class="head">
+        <div class="rule"><i></i></div>
+        <h2>Мастера</h2>
+        <p>Выберите мастера и запишитесь сразу к нему.</p>
+      </div>
+      <div class="masters">
+        <article class="master">
+          <span class="mono" aria-hidden="true">Б</span>
+          <div><span class="rank">Топ-барбер</span><h3>Борис</h3><p>5,0 · 42 оценки в DIKIDI</p></div>
+          <a class="btn btn-brass btn-sm" href="https://dikidi.ru/ru/profile/barbershop_bola_1488742/master/3209366" target="_blank" rel="noopener">Записаться к Борису</a>
+        </article>
+        <article class="master">
+          <span class="mono" aria-hidden="true">Ш</span>
+          <div><span class="rank">Старший барбер</span><h3>Шираз</h3><p>5,0 · 3 оценки в DIKIDI</p></div>
+          <a class="btn btn-line btn-sm" href="https://dikidi.ru/ru/profile/barbershop_bola_1488742/master/3209442" target="_blank" rel="noopener">Записаться</a>
+        </article>
+        <article class="master">
+          <span class="mono" aria-hidden="true">А</span>
+          <div><span class="rank">Барбер</span><h3>Ашот</h3><p>4,8 · 15 оценок в DIKIDI</p></div>
+          <a class="btn btn-line btn-sm" href="https://dikidi.ru/ru/profile/barbershop_bola_1488742/master/4162370" target="_blank" rel="noopener">Записаться</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="space">
+    <div class="wrap split">
+      <div class="split-text">
+        <span class="eyebrow">Зал</span>
+        <h2>Тёмный зал, спокойная музыка</h2>
+        <p>Первый этаж на Урицкого, 128, вход с крыльца под вывеской BARBER SHOP.</p>
+        <div class="perks">
+          <div class="perk"><div><b>Подарочные сертификаты</b><span>можно купить в барбершопе</span></div></div>
+          <div class="perk"><div><b>Системы замещения волос</b><span>наращивание и коррекция</span></div></div>
+          <div class="perk"><div><b>Онлайн-запись</b><span>свободное время видно сразу</span></div></div>
+        </div>
+      </div>
+      <div class="trio">
+        <img src="img/atmosfera-1.jpg" alt="Барбер в жилете и кепке у полок с бутылками" loading="lazy">
+        <img src="img/atmosfera-2.jpg" alt="Мастер в кресле в зале Bola" loading="lazy">
+        <img src="img/atmosfera-3.jpg" alt="Зал барбершопа с косыми полками" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="kids">
+    <div class="wrap split flip">
+      <div class="split-text">
+        <span class="eyebrow">Детям</span>
+        <h2>Стрижём всей семьёй</h2>
+        <p>Детская стрижка до 8 лет — 800 ₽. «Отец и сын» — 1 700 ₽ за двоих.</p>
+        <p>Борис делает детям и химическую завивку — об этом пишут родители в отзывах.</p>
+        <div class="cta" style="margin-top:28px">
+          <a class="btn btn-line" href="https://dikidi.ru/1488742" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записать ребёнка</a>
+        </div>
+      </div>
+      <div class="duo">
+        <img src="img/deti-1.jpg" alt="Барбер стрижёт мальчика" loading="lazy">
+        <img src="img/deti-2.jpg" alt="Отец с сыном после стрижки" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="head">
+        <div class="rule"><i></i></div>
+        <h2>Отзывы</h2>
+        <p>Из 2ГИС и DIKIDI, без правок.</p>
+      </div>
+      <div class="reviews">
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Наконец-то нашёл место, где делают именно то, что просишь: быстро, качественно и за адекватные деньги. Стрижка безупречная, атмосфера приятная, без лишней пафосности. Теперь только сюда и только к Борису!</p><footer><b>Михаил З</b><span>2ГИС · январь 2026</span></footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Радости нет предела! Ребенку накануне сделали некачественную завивку, которую Борис исправил на отлично. Теперь на стрижки и повторные завивки однозначно только к нему.</p><footer><b>Анжелика</b><span>DIKIDI · август 2026</span></footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Подстригался у барбера Ашота — и это был один из лучших опытов за долгое время: мастер сразу понял, чего я хочу и сделал всё аккуратно. Атмосфера в барбершопе отличная — спокойная музыка, дружеливая команда …</p><footer><b>Александр</b><span>2ГИС · декабрь 2025</span></footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Пару лет уже ходим на стрижку к Борису. Быстро, круто и бережно к ребёнку.</p><footer><b>Аня Ломакина</b><span>2ГИС · май 2025</span></footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Отличный барбершоп! Мастер из лучших! Быстро, качественно, приемлемо по цене. Стрижемся всей семьёй уже на протяжении 4 лет. И всем советуем 👍</p><footer><b>Настя Хилтон</b><span>2ГИС · октябрь 2022</span></footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Как всегда ,все на высшем уровне! Огромное спасибо Ашоту</p><footer><b>Илья</b><span>DIKIDI · февраль 2026</span></footer></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacts" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="rule"><i></i></div>
+        <h2>Контакты</h2>
+        <p>Коминтерновский район, первый этаж.</p>
+      </div>
+      <div class="contacts">
+        <div class="info">
+          <img src="img/fasad.jpg" alt="Вход в барбершоп Bola с вывеской BARBER SHOP" loading="lazy">
+          <dl>
+            <div class="r"><dt>Адрес</dt><dd>Улица Урицкого, 128, 1 этаж<small>Коминтерновский район, Воронеж, 394026</small></dd></div>
+            <div class="r"><dt>Часы</dt><dd>Ежедневно 10:00–20:00</dd></div>
+            <div class="r"><dt>Телефон</dt><dd><a href="tel:+79102898681">+7 910 289-86-81</a></dd></div>
+            <div class="links">
+              <a class="btn btn-line btn-sm" href="https://wa.me/79102898681" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+              <a class="btn btn-line btn-sm" href="https://t.me/+79102898681" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a>
+              <a class="btn btn-line btn-sm" href="https://vk.com/barbershop_bola_vrn" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg>ВКонтакте</a>
+            </div>
+          </dl>
+        </div>
+        <div class="map">
+          <iframe title="Bola на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=39.187641%2C51.679823&amp;z=16&amp;pt=39.187641%2C51.679823%2Cpm2orl&amp;l=map"></iframe>
+          <a class="btn btn-brass btn-sm" href="https://2gis.ru/voronezh/firm/70000001063190270" target="_blank" rel="noopener">Маршрут в 2ГИС <svg><use href="#i-arrow-ur"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <div class="rule"><i></i></div>
+      <h2>Ждём в Bola</h2>
+      <p>Онлайн-запись в DIKIDI или по телефону +7 910 289-86-81.</p>
+      <a class="btn btn-brass" href="https://dikidi.ru/1488742" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Barbershop Bola · Воронеж</span>
+    <span>Рейтинг, фото и отзывы: <a href="https://2gis.ru/voronezh/firm/70000001063190270" target="_blank" rel="noopener">2ГИС</a>, <a href="https://dikidi.ru/1488742" target="_blank" rel="noopener">DIKIDI</a></span>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox">
+  <img alt="">
+  <button type="button" aria-label="Закрыть"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+</dialog>
+
+<div class="mobile-bar">
+  <a class="btn btn-brass" href="https://dikidi.ru/1488742" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+  <a class="btn btn-line" href="tel:+79102898681" aria-label="Позвонить"><svg><use href="#i-phone"/></svg></a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (() => {
+    const el = document.getElementById('status');
+    const h = Number(new Intl.DateTimeFormat('ru-RU', {hour: 'numeric', hourCycle: 'h23', timeZone: 'Europe/Moscow'}).format(new Date()));
+    const open = h >= 10 && h < 20;
+    el.classList.toggle('is-open', open);
+    el.querySelector('span').textContent = open ? 'Открыто до 20:00' : 'Сейчас закрыто · откроемся в 10:00';
+  })();
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  document.querySelectorAll('.work').forEach(b => b.addEventListener('click', () => {
+    const img = b.querySelector('img');
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lb.showModal();
+  }));
+  lb.addEventListener('click', () => lb.close());
+</script>
+</body>
+</html>
